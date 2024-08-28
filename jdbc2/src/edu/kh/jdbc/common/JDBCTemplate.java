@@ -19,7 +19,7 @@ import java.util.Properties;
  * - 각종 close()
  * 
  * ***** 중요!!! *****
- * 어디서등 JDBCTemplate 클래스를 
+ * 어디서든 JDBCTemplate 클래스를 
  * 객체로 만들기 않고도 메서드를 사용할 수 있도록 하기 위해
  * 모든 메서드를 public static 으로 선언!!!!!! 
  */
