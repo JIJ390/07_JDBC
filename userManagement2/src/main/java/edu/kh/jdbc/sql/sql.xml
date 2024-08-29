@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- 
+		entry : K, V 한 쌍을 나타내는 단위
+		<entry key="K"> V </entry>
+	 -->
+	
+	<!-- 마크업 언어 내부 전체가 문자열 -->
+	<!-- 사용자 등록 -->
+	<entry key="insertUser">		
+		INSERT INTO TB_USER
+	 	VALUES(SEQ_USER_NO.NEXTVAL,
+	 		   ?,
+	 		   ?,
+	 		   ?,
+	 		   DEFAULT)	
+	</entry>
+	
+	
+	<!-- 아이디 중복 검사 -->
+	<entry key="idCheck">
+		SELECT COUNT(*) 
+		FROM TB_USER
+		WHERE USER_ID = ?
+	</entry>
+	
+	
+	<!-- 로그인 -->
+	<entry key="login">
+		SELECT 
+			USER_NO,
+			USER_ID,
+			USER_PW,
+			USER_NAME,
+			TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') 
+				ENROLL_DATE
+		FROM TB_USER
+		WHERE USER_ID = ?
+		AND   USER_PW = ?
+	</entry>
+	
+	<entry key="selectAll">
+		SELECT 
+			USER_NO,
+			USER_ID,
+			USER_PW,
+			USER_NAME,
+			TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') 
+				ENROLL_DATE
+		FROM TB_USER
+		ORDER BY USER_NO ASC
+	</entry>
+	
+	
+	<entry key="selectUser">
+		SELECT 
+			USER_NO,
+			USER_ID,
+			USER_PW,
+			USER_NAME,
+			TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') 
+				ENROLL_DATE
+		FROM TB_USER
+		WHERE USER_NAME = ?
+		ORDER BY USER_NO ASC
+	</entry>
+	
+	
+	
+</properties>
