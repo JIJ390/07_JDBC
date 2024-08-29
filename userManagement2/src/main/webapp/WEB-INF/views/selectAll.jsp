@@ -15,7 +15,7 @@
   <hr>
 
   <form action="/selectUser" method="GET" >
-    <input type="text" name="name" placeholder="이름으로 검색" required>
+    <input type="text" name="userName" placeholder="이름으로 검색" required>
     <button >검색</button> 
   </form>
 
