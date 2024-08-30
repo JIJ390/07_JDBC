@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 		
 		// 3. DML 수행 -> 트랜잭션 처리
 		if(result > 0) commit(conn);
-		else	           rollback(conn);
+		else	       rollback(conn);
 		
 		// 4. 사용 완료된 Connection 반환
 		close(conn);
@@ -73,14 +73,60 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public List<User> selectUser(String searchName) throws Exception {
+	public List<User> selectName(String searchName) throws Exception {
 		Connection conn = getConnection();
 		
-		List<User> searchList = dao.selectUser(conn, searchName);
+		// 데이터 가공
+//		searchName = '%' + searchName + '%';  %검색어%
+//		sql.xml 에서 처리해둠
+		
+		List<User> searchList = dao.selectName(conn, searchName);
 		
 		close(conn);
 		
 		return searchList;
+	}
+
+
+	@Override
+	public User selectUser(int userNo) throws Exception {
+		Connection conn = getConnection();
+		
+		User user = dao.selectUser(conn, userNo);
+		
+		close(conn);
+		
+		return user;
+	}
+
+
+	@Override
+	public int deleteUser(int userNo) throws Exception {
+		Connection conn =  getConnection();
+		
+		int result = dao.deleteUser(conn, userNo);
+		
+		if(result > 0) commit(conn);
+		else	       rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	@Override
+	public int updateUser(User user) throws Exception {
+		Connection conn =  getConnection();
+		
+		int result = dao.updateUser(conn, user);
+		
+		if(result > 0) commit(conn);
+		else	       rollback(conn);
+		
+		close(conn);
+		
+		return result;
 	}
 
 }

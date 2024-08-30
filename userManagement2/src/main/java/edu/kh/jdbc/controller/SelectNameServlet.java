@@ -12,25 +12,32 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/selectAll")
-public class SelectAllServlet extends HttpServlet{
+@WebServlet("/selectName")
+public class SelectNameServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String searchName = req.getParameter("searchName");
 		
 		try {
 			UserService service = new UserServiceImpl();
 			
-			List<User> userList = service.selectAll();
+			List<User> searchList = service.selectName(searchName);
 			
-			req.setAttribute("userList", userList);
+//			if (searchList.isEmpty()) {
+//				req.setAttribute("message", "조회된 결과가 없습니다");
+//			} else {
+//				req.setAttribute("userList", searchList);
+//			}
 			
+			req.setAttribute("userList", searchList);
+			
+			// forward 할 경로
 			String path = "/WEB-INF/views/selectAll.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
-
 }

@@ -18,23 +18,24 @@
   <form action="/signUp" method="POST" id="signUpForm">
 
     <div>
-      ID : <input type="text" name="userId" id="userId" required>
+      <input type="text" name="userId" id="userId" placeholder="아이디" required>
 
       <span id="check"></span>
     </div>
     <div>
-      PW : <input type="password" name="userPw" autoComplete="off" required>
+      <input type="password" name="userPw" autoComplete="off" placeholder="비밀번호" required>
     </div>
     <div>
-      NAME : <input type="text" name="userName" required>
+      <input type="text" name="userName" placeholder="이름" required>
     </div>
     <div>
       <button>등록</button>
+      <a href="/"><button type="button">돌아가기</button></a>
     </div>
 
   </form>
 
-  <a href="/"><button>돌아가기</button></a>
+
 
 
   <%-- js 파일 연결 (webapp 폴더를 기준으로 경로 작성) --%>

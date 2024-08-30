@@ -21,17 +21,22 @@
 
   <form action="/login" method="post">
     <div>
-      ID : <input type="text" name="userId" required>
+     <input type="text" name="userId" placeholder="아이디" required>
     </div>
     <div>
-      PW : <input type="password" name="userPw" autoComplete="off" required>
+      <input type="password" name="userPw" autoComplete="off" placeholder="비밀번호" required>
     </div>
     <div>
       <button>로그인</button>
-      <a href="/signUp"><button>사용자 등록</button></a>
+      <a href="/signUp"><button type="button">사용자 등록</button></a>
     </div>
   </form>
+
+  
+
 </c:if>
+
+
 
 
 <%-- 로그인 상태인 경우 --%>

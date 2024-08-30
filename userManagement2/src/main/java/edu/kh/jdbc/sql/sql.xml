@@ -54,6 +54,21 @@
 	</entry>
 	
 	
+	<entry key="selectName">
+		SELECT 
+			USER_NO,
+			USER_ID,
+			USER_PW,
+			USER_NAME,
+			TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') 
+				ENROLL_DATE
+		FROM TB_USER
+		WHERE USER_NAME LIKE '%' || ? || '%'
+		ORDER BY USER_NO ASC
+	</entry>
+	
+	
+	
 	<entry key="selectUser">
 		SELECT 
 			USER_NO,
@@ -63,10 +78,25 @@
 			TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') 
 				ENROLL_DATE
 		FROM TB_USER
-		WHERE USER_NAME = ?
-		ORDER BY USER_NO ASC
+		WHERE USER_NO = ?
 	</entry>
 	
+	
+	<entry key="deleteUser">		
+		DELETE 
+		FROM TB_USER 
+		WHERE USER_NO = ?
+	</entry>
+	
+	
+	
+	<entry key="updateUser">
+		UPDATE TB_USER
+		SET 
+			USER_PW = ?,
+			USER_NAME = ?
+		WHERE USER_NO = ?
+	</entry>
 	
 	
 </properties>

@@ -35,13 +35,46 @@ public interface UserService {
 
 	/**
 	 * 모든 사용자 조회
-	 * @return userList : user 정보 담은 List
+	 * @return searchList : user 정보 담은 List
 	 * @throws Exception
 	 */
 	List<User> selectAll() throws Exception;
 
 
-	List<User> selectUser(String searchName)throws Exception;
+	/**
+	 * 검색어가 이름에 포함된 사용자 조회
+	 * @param searchName
+	 * @return searchList : 검색어가 포함된 user 정보 담은 List
+	 * @throws Exception
+	 */
+	List<User> selectName(String searchName) throws Exception;
+
+
+	/**
+	 * userNo 가 일치하는 user 정보 조회
+	 * @param userNo
+	 * @return user
+	 * @throws Exception
+	 */
+	User selectUser(int userNo) throws Exception;
+
+
+	/**
+	 * userNo 가 일치하는 user 정보 삭제
+	 * @param userNo
+	 * @return result : 0 || 1 (실패 / 성공)
+	 * @throws Exception
+	 */
+	int deleteUser(int userNo) throws Exception;
+
+	
+	/**
+	 * userNo 가 일치하는 user 정보 수정
+	 * @param user
+	 * @return result : 0 || 1 (실패 / 성공)
+	 * @throws Exception
+	 */
+	int updateUser(User user) throws Exception;
 
 	
 	
