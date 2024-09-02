@@ -76,9 +76,9 @@ public class JDBCExample3 {
 				sum += salary;
 			}
 			
-			System.out.printf("총     원 : %d 명 \n", count);
-			System.out.printf("총   급여 : %d 원 \n", sum);
-			System.out.printf("평균 급여 : %d 원 \n", sum / count);
+			System.out.printf("총     원 : %10d 명 \n", count);
+			System.out.printf("총   급여 : %,10d 원 \n", sum);
+			System.out.printf("평균 급여 : %,10d 원 \n", sum / count);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

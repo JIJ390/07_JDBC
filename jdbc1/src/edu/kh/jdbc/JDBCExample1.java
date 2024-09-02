@@ -72,7 +72,7 @@ public class JDBCExample1 {
 			 * Connection 객체 생성                          */
 			
 			conn = DriverManager.getConnection(
-					type + host + port + dbName,		// url
+					type + host + port + dbName,	// url
 					userName,						// user
 					password); 						// password
 			
